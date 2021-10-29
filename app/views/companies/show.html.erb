@@ -20,5 +20,18 @@
   <%= @company.country %>
 </p>
 
+<p>
+  <strong>Employees List:</strong> <br>
+  <% @company.employees.each do |employee| %>
+    <br>
+    Employee name: <%= employee.name %> 
+    <br>
+    Employee age: <%= employee.age %> 
+    <br>
+    Employee doj: <%= employee.doj %> 
+    <br>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_company_path(@company) %> |
 <%= link_to 'Back', companies_path %>
