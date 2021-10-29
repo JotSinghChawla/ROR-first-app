@@ -1,0 +1,86 @@
+<h1>Form Page using RoR</h1>
+
+<%= form_with do |form| %>
+
+    <div class="field">
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+    </div>
+    
+    <div class="field">
+        <%= form.label :number %>
+        <%= form.number_field :number %>
+    </div>
+
+    <div class="field">
+        <%= form.label :email %>
+        <%= form.email_field :email %>
+    </div>
+    
+    <div class="field">
+        <%= form.label :url %>
+        <%= form.url_field :url %>
+    </div>
+
+    <div class="field">
+        <%= form.label :hidden_tag %>
+        <%= form.hidden_field :hidden_tag %>
+    </div>
+
+    <div class="field">
+        <%= form.label :password %>
+        <%= form.password_field :password %>
+    </div>
+
+    <div class="field">
+        <%= form.label :file %>
+        <%= form.file_field :file %>
+    </div>
+    
+    <div class="field">
+        <%= form.label :textarea %>
+        <%= form.text_area "body", "cols" => '60', "rows" => '10'%>
+    </div>
+    
+    <div class="field">
+        <%= form.label :radio_button %>
+        <%= radio_button("post", "category", "rails") %> Rails
+        <%= radio_button("post", "category", "javascript") %> Javascript
+        <%= radio_button("post", "category", "c++") %> Cpp
+    </div>
+    
+    <div class="field">
+        <%= form.label :select %>
+        <%= form.select :city, ["India", "USA", "Canada", "China"] %>
+    </div>
+
+    <div class="field">
+        <%= form.label :date %>
+        <%= form.date_field :date %>
+    </div>
+    
+    <div class="field">
+        <%= form.label :time %>
+        <%= form.time_field :time %>
+    </div>
+
+    <div class="field">
+        <%= form.check_box :box1 %> Box 1
+        <%= form.check_box :box2 %> Box 2
+    </div>
+
+    <div class="field">
+        <%= form.label :range %>
+        <%= form.range_field :range, in: 1..10 %>
+    </div>
+    
+    <div class="field">
+        <%= form.label :color %>
+        <%= form.color_field :color %>
+    </div>
+
+    <div class="actions">
+        <%= form.submit %>
+    </div>
+
+<% end %>
