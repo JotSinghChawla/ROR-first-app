@@ -4,6 +4,7 @@ class CreateBooks < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :author
       t.float :price
+      # publisher(string) is also added later
 
       t.timestamps
     end
