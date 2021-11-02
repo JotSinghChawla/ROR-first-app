@@ -1,5 +1,18 @@
 class BooksController < ApplicationController
   before_action :set_book, only: %i[ show edit update destroy ]
+  before_action :admin_logged_in?
+  after_action :update_log, only: :destroy
+  
+  def admin_logged_in?
+    if session[:admin].nil?
+      flash[:notice] = "You should login as an admin to continue..."
+      redirect_to :controller=>"admin",:action=>"login"
+    end
+  end
+
+  def update_log 
+    logger.info "======================Book is deleted======================"
+  end
 
   # GET /books or /books.json
   def index
