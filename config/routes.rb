@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get 'admin/login'
+  post 'admin/login'
+  get 'admin/logout'
   resources :companies
   resources :employees
   

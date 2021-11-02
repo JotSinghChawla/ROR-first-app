@@ -8,12 +8,11 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <!--
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    -->
+
     
     <style>
       label {
@@ -24,6 +23,15 @@
   </head>
 
   <body class="container">
+    <div class="m-3">
+      <% if session[:admin] %>
+        <a href="/admin/logout" class="btn btn-danger text-white"> Logout </a>
+        <h3> Welcome, <%= session[:admin] %> </h3>
+      <% else %>
+        <a href="/admin/logout" class="btn btn-primary text-white"> Login </a>
+      <% end %>
+    </div>
+
     <%= yield %>
   </body>
 </html>
