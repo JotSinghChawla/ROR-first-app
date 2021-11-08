@@ -1,4 +1,7 @@
 class Book < ApplicationRecord
+
+    self.per_page = 5
+
     validates :fullname, :author, :publisher, :price, presence: true
     validates :fullname, length: { in: 3..30 }
     validates :fullname, uniqueness: true

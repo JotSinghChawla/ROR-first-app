@@ -16,7 +16,14 @@ class BooksController < ApplicationController
 
   # GET /books or /books.json
   def index
-    @books = Book.all
+    @books = Book.paginate(:page => params[:page])
+    
+    respond_to do |format|
+      format.html
+      format.json { render json: @books }
+      format.xml { render xml: @books.as_json }
+    end
+
   end
 
   # GET /books/1 or /books/1.json
@@ -38,11 +45,14 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
+        logger.info "##  " + @book.to_s + "  ##"
         format.html { redirect_to @book, notice: "Book was successfully created." }
         format.json { render :show, status: :created, location: @book }
+        format.xml { redirect_to @book, notice: "Book was successfully created." }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @book.errors, status: :unprocessable_entity }
+        format.xml { redirect_to @book, notice: "Book was successfully created." }
       end
     end
   end
