@@ -30,4 +30,13 @@
 
 <br>
 
+<div class="digg_pagination">
+  <%= will_paginate @books %>
+</div>
+<br>
+
 <%= link_to 'New Book', new_book_path %>
+
+<br>
+
+<%= link_to 'Book XML format', '/books.xml' %>
