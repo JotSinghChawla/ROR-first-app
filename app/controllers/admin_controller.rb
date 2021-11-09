@@ -2,7 +2,7 @@ class AdminController < ApplicationController
   def login
     if request.post?
       if params[:username] == "admin" && params[:password] == "password"
-        session[:admin] = "admin"
+        session[:admin] = params[:username]
         flash[:notice] = "Welcome, admin"
         redirect_to :controller => "books", :action => "index"
       else 

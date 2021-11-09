@@ -14,4 +14,8 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'home/welcome'
   get 'form/index'
+
+  # scope "/:locale" do
+  #   resources :books
+  # end
 end
